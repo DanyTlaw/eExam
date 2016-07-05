@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: eExam_development
+  pool: 5
+  username: dany
+  password: pp34wf
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: eExam_test
+  pool: 5
+  username: dany
+  password: pp34wf
