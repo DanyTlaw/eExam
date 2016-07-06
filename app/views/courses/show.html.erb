@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Courseofstudies:</strong>
-  <%= @course.CourseOfStudies %>
+  <strong>Name:</strong>
+  <%= @course.name %>
 </p>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<%= link_to 'Edit', edit_course_of_study_course_path(@course_of_study, @course) %> |
+<%= link_to 'Back', course_of_study_courses_path %>
