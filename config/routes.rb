@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   get "/stream", to: "students#index_stream"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'course_of_studies#index'
+  root 'static#home'
 
 end
