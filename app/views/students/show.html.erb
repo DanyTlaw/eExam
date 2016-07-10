@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Course:</strong>
-  <%= @student.course %>
+  <strong>Student:</strong>
+  <%= @student.email %>
 </p>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<%= link_to 'Edit', edit_course_of_study_course_student_path(@course.id, @student.id) %> |
+<%= link_to 'Back', course_of_study_course_students_path %>

@@ -1,0 +1,28 @@
+<h1>Students</h1>
+<div id="info" course="<%=@course.id %>" courseOfStudy="<%=@course_of_study.id %>"></div>
+<div ng-controller="StatusController">
+  <button class="btn btn-primary"ng-click="init()">Los</button>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">All Student in this Course</div>
+    <div class="panel-body">
+      <table class="table">
+        <tr>
+          <th>Email</th>
+          <th>Angemeldet</th>
+          <th>Online</th>
+        </tr>
+
+        <tr ng-repeat="entry in entries">
+          <td>{{entry.email}}</td>
+          <td>{{entry.check}}</td>
+          <td>{{entry.online}}</td>
+        </tr>
+      </table
+
+    </div>
+  </div>
+</div>
+
+
+<br>
