@@ -1,35 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Course Of Studies</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @course_of_studies.each do |course_of_study| %>
+<div class="panel panel-primary ">
+  <div class="panel-heading">Studiengänge</div>
+  <div class="panel-body">
+    <table class="table">
+      <th>Name</th>
+      <% @course_of_studies.each do |course_of_study| %>
       <tr>
-        <td><%= link_to 'Show', course_of_study %></td>
-        <td><%= link_to 'Edit', edit_course_of_study_path(course_of_study) %></td>
-        <td><%= link_to 'Destroy', course_of_study, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= course_of_study.name %></td>
+        <td><%= link_to 'Anzeigen', course_of_study, class: "btn btn-info" %>
+        <%= link_to 'Editieren', edit_course_of_study_path(course_of_study), class: "btn btn-warning" %>
+        <%= link_to 'Löschen', course_of_study, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
-
+    
+    </table>
+  </div>
+</div>
 <br>
 
-<div ng-controller="TestController">
-  <button ng-click="testf()">test</button>
-  {{entries}}
-  <ul>
-    <li ng-repeat="entry in entries">
-      {{entry.check}}
-    </li>
-  </ul>
-</div>
-
-<%= link_to 'New Course Of Study', new_course_of_study_path %>
+<%= link_to 'Neuer Studiengang', new_course_of_study_path, class: "btn btn-success" %>

@@ -1,6 +1,11 @@
-<h1>Editing Course</h1>
+<div class="panel panel-primary">
+    <div class="panel-heading">Bearbeite Kurs</div>
+    <div class="panel-body">
+        <%= render 'form', course: @course %>
+    </div>
+</div>
 
-<%= render 'form', course: @course %>
 
-<%= link_to 'Show', course_of_study_course_path(@course_of_study.id, @course.id) %> |
-<%= link_to 'Back', course_of_study_courses_path %>
+
+<%= link_to 'Anzeigen', course_of_study_course_path(@course_of_study.id, @course.id) ,class: "btn btn-info"%>
+<%= link_to 'Zurück', course_of_study_courses_path, class: "btn btn-info" %>
