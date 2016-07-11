@@ -2,14 +2,14 @@
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left">
-        
+        <% if user_signed_in? then %>
         <li><%= link_to "Startseite", root_path %></li>
         <li><%= link_to "Studiengänge", course_of_studies_path %></li>
         <li><%= link_to "Kurse", courses_all_path %></li>
-     
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-
+        <li><%= link_to "Login", new_user_session_path, class: "btn btn-info" %></li>
       </ul>
     </div>
   </div>
