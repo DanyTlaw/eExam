@@ -8,6 +8,9 @@ class CoursesController < ApplicationController
     @courses = @course_of_study.courses
   end
 
+  def all
+    @courses = Course.all
+  end
   # GET /courses/1
   # GET /courses/1.json
   def show

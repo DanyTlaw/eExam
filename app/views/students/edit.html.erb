@@ -1,6 +1,10 @@
-<h1>Editing Student</h1>
+<div class="panel panel-primary">
+    <div class="panel-heading">Bearbeite Student</div>
+        <%= render 'form', student: @student %>
+    <div class="panel-body">
+    </div>
+</div>
 
-<%= render 'form', student: @student %>
 
-<%= link_to 'Show', course_of_study_course_student_path(@course, @student) %> |
-<%= link_to 'Back', course_of_study_course_student_path %>
+<%= link_to 'Anzeigen', course_of_study_course_student_path(@course, @student), class: "btn btn-info" %> |
+<%= link_to 'Zurück', course_of_study_course_student_path, class: "btn btn-primary" %>

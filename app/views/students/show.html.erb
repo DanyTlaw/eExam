@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
+<div class="panel panel-primary">
+  <div class="panel-heading">Kurs details</div>
+  <div class="panel-body">
+    <table class="table">
+      <th>Email</th>
+      <tr>
+        <td><%= @student.email %></td>
+      </tr>
+    </table>
+  </div>
+</div>
 
-<p>
-  <strong>Student:</strong>
-  <%= @student.email %>
-</p>
-
-<%= link_to 'Edit', edit_course_of_study_course_student_path(@course.id, @student.id) %> |
-<%= link_to 'Back', course_of_study_course_students_path %>
+<%= link_to 'Editieren', edit_course_of_study_course_student_path(@course.id, @student.id), class: "btn btn-warning" %> |
+<%= link_to 'Zurück', course_of_study_course_students_path, class: "btn btn-primary" %>

@@ -19,11 +19,13 @@
 #wrapper{
 		 min-height:100%;
 		 position: relative;
+		 margin-left:10%;
+		 margin-right:10%;
 }
 
 
 .content{
-	 margin-top: 70px;
+	 margin-top: 90px;
 	 padding-bottom: 200px;
      .alert{
         z-index: 999;
@@ -68,6 +70,7 @@
 .navbar {
 
 	padding:10px;
+
 
 	.navbar-nav{
 		display: inline;

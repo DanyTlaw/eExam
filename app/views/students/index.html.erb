@@ -1,28 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Students</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Students</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="panel panel-primary ">
+  <div class="panel-heading">Kurse</div>
+  <div class="panel-body">
+    <table class="table">
+    <th>Email</th>
     <% @students.each do |student| %>
       <tr>
         <td><%= student.email %></td>
-        <td><%= student.check %></td>
-        <td><%= link_to 'Show', course_of_study_course_student_path(@course_of_study.id,@course.id, student.id) %></td>
-        <td><%= link_to 'Edit', edit_course_of_study_course_student_path(@course_of_study.id,@course.id, student.id) %></td>
-        <td><%= link_to 'Destroy', [@course_of_study, @course, student], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Anzeigen', course_of_study_course_student_path(@course_of_study.id,@course.id, student.id), class: "btn btn-info" %>
+        <%= link_to 'Editieren', edit_course_of_study_course_student_path(@course_of_study.id,@course.id, student.id), class: "btn btn-warning" %>
+        <%= link_to 'Löschen', [@course_of_study, @course, student], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+
+    </table>
+  </div>
+</div>
+
 
 <br>
-<%= link_to 'Dashboard', {:controller => "students", :action => "dashboard", :course_of_study_id => @course_of_study, :course_id => @course}, "data-no-turbolink" => true %>
-<%= link_to 'New Student', new_course_of_study_course_student_path %>
+<%= link_to 'Dashboard', {:controller => "students", :action => "dashboard", :course_of_study_id => @course_of_study, :course_id => @course}, "data-no-turbolink" => true, class:"btn btn-primary" %>
+<%= link_to 'Neuer Student', new_course_of_study_course_student_path, class: "btn btn-success" %>

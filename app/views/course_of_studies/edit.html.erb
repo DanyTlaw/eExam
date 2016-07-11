@@ -1,6 +1,9 @@
-<h1>Editing Course Of Study</h1>
+<div class="panel panel-primary">
+    <div class="panel-heading">Bearbeite Studiengang</div>
+    <div class="panel-body">
+        <%= render 'form', course_of_study: @course_of_study %>
+    </div>
+</div>
 
-<%= render 'form', course_of_study: @course_of_study %>
-
-<%= link_to 'Show', @course_of_study %> |
-<%= link_to 'Back', course_of_studies_path %>
+<%= link_to 'Anzeigen', @course_of_study, class: "btn btn-info" %>
+<%= link_to 'Zurück', course_of_studies_path, class: "btn btn-primary"%>
