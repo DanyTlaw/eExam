@@ -32,6 +32,22 @@ gem 'active_model_serializers', '~> 0.10.0'
 # gem 'capistrano-rails', group: :development
 gem 'devise'
 
+
+gem 'rspec-rails', '>= 3.5.0.beta1'
+gem 'ransack',    github: 'activerecord-hackery/ransack'
+gem 'kaminari',   github: 'amatsuda/kaminari', branch: '0-17-stable'
+gem 'formtastic', github: 'justinfrench/formtastic'
+gem 'draper',     github: 'audionerd/draper', branch: 'rails5', ref: 'e816e0e587'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+
+# To fix a Draper deprecation error
+gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
+
+
+gem 'activeadmin', github: 'activeadmin'
+
+gem 'actionpack', '~> 5.0.0'
+
 gem 'angularjs-rails'
 
 group :development, :test do
