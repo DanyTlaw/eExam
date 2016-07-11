@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   # Serve websockte cable requests in-process
   # mount ActionCable.server => '/cable'
 
