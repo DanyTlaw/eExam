@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   get "/courses/all", to: "courses#all"
 
+  get "/getCourseStudents", to: "students#getCourseStudents"
   get "/dashboard", to: "students#dashboard"
   get "/stream", to: "students#index_stream"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

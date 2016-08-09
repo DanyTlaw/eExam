@@ -19,6 +19,13 @@ class StudentsController < ApplicationController
 
   end
 
+  def getCourseStudents
+    @course_of_study = CourseOfStudy.find(params[:course_of_study_id])
+    @course = Course.find(params[:course_id])
+    @students = @course.students
+    render json: @students
+  end
+
   def watch
 
   end

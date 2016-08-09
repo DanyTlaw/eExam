@@ -1,7 +1,7 @@
 <h1>Students</h1>
 <div id="info" course="<%=@course.id %>" courseOfStudy="<%=@course_of_study.id %>"></div>
-<div ng-controller="StatusController">
-  <button class="btn btn-primary"ng-click="init()">Los</button>
+<div ng-controller="StatusController" ng-init="init()">
+  <button class="btn btn-primary"ng-click="sseFunction()">Los</button>
 
   <div class="panel panel-default">
     <div class="panel-heading">All Student in this Course</div>

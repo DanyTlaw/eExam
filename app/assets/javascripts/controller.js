@@ -20,7 +20,7 @@ myApp.controller('PollController', ['$scope','$http', '$timeout', function($scop
     poller();
 }]);
 
-myApp.controller("StatusController", ['$scope', function($scope){
+myApp.controller("StatusController", ['$scope','$http', function($scope, $http){
 
   $scope.entries = {};
 
@@ -33,7 +33,7 @@ myApp.controller("StatusController", ['$scope', function($scope){
   console.log(sourceLink);
   var link = "/stream";
 
-  $scope.init = function(){
+  $scope.sseFunction = function(){
     source = new EventSource(sourceLink);
     source.addEventListener("results", function(response){
       console.log(JSON.parse(response.data));
@@ -44,6 +44,20 @@ myApp.controller("StatusController", ['$scope', function($scope){
 
     }, false);
   };
+
+  $scope.init = function(){
+    var hosturl = "http://localhost:3000";
+    var courseID = $("#info").attr("course");
+    var courseOfStudyID = $("#info").attr("courseOfStudy");
+    var sourceLink = "/getCourseStudents?" + "course_id=" +courseID + "&" + "course_of_study_id=" +courseOfStudyID;
+      $http.get(sourceLink)
+        .then(function(response){
+          $scope.entries = response.data;
+        }, function(error){
+          alert(error);
+        });
+    };
+  
 
 }]);
 
