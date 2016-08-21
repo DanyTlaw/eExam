@@ -2,7 +2,7 @@
 class StudentsController < ApplicationController
   include ActionController::Live
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user! 
+  before_filter :authenticate_user!
 
   # GET /students
   # GET /students.json
@@ -69,6 +69,16 @@ class StudentsController < ApplicationController
     @course_of_study = CourseOfStudy.find(params[:course_of_study_id])
     @course = Course.find(params[:course_id])
     @student = @course.students.find(params[:id])
+  end
+
+  def add_file
+    @student = Student.find(4);
+    @student.file = params[:logfile]
+    if @student.save!
+      puts "SAAAAAAAAAAAAAAAAVE"
+    else
+      puts "NOOOOOOOOOOOO"
+    end
   end
 
   # POST /students

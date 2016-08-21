@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get "/apiget", to: "api#apigettest"
     match '/isOnline', to: "api#is_online", via: :post
     get "/online", to: "api#online"
+    match "logfile", to: "api#logfile", via: :post
   end
 
   resources :course_of_studies do
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "students#dashboard"
   get "/stream", to: "students#index_stream"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
+  post "/logfileupload", to: 'students#add_file', as: 'upload_file'
   root 'static#home'
 
 end
