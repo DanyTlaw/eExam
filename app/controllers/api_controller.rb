@@ -15,6 +15,14 @@
       render text: "thanks for the post request: #{h}"
     end
 
+    # Function to send the encryption code
+    def send_enc
+      h = Hash.new
+      # The password should be stored at a better place then here, best case would be with ENV and .env file
+      h = {:key => "meinpassword"}
+      render json: h.to_json
+    end
+
     # Function to change the online status of the student
     def is_online
       studentInfo = JSON.parse(request.body.read)

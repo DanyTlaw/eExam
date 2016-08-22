@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     match '/isOnline', to: "api#is_online", via: :post
     get "/online", to: "api#online"
     match "logfile", to: "api#logfile", via: :post
+    get "/enc", to: "api#send_enc"
   end
 
   resources :course_of_studies do
