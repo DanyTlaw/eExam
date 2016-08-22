@@ -1,7 +1,5 @@
 module ApplicationHelper
 
-
-
   # Function that takes a student and decrypt file and returns it
   def decrypt_file(student)
       # Rails public path

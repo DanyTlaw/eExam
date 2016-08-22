@@ -40,7 +40,7 @@ ActiveAdmin.register Student do
             # Open then new file and add the line
             File.open(dec_file, "a+") do |file|
               file << cipher.decrypt(line) + "\n"
-              puts cipher.decrypt(line)
+
             end
           end
         end
@@ -48,15 +48,21 @@ ActiveAdmin.register Student do
         return dec_file
     end
 
-      def download_file()
-        @student = Student.find(params[:id]);
-        # Here we wanna decrypt the file
-        send_file(decrypt_file(@student),
-          :filename => @student.file,
-          :type => @student.file.content_type,
-          :disposition => 'attachment',
-          :url_based_filename => true)
-      end
+    # This method handles the decryption, download and then delete the file
+    def download_file()
+      # gets the student we are watching
+      @student = Student.find(params[:id]);
+      # Here we wanna decrypt the file
+      decr_file = decrypt_file(@student)
+      # we make the file downloadable
+      send_file(decr_file,
+        :filename => @student.file,
+        :type => @student.file.content_type,
+        :disposition => 'attachment',
+        :url_based_filename => true)
+      # we wanna delete the file from the server after we send the file for download (keeps server clean)
+      File.delete(decr_file)
+    end
   end
 
 end
