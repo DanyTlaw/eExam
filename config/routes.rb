@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get "/stream", to: "students#index_stream"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   post "/logfileupload", to: 'students#add_file', as: 'upload_file'
+  post "/downloadFile", to: 'students#download_file'
+
   root 'static#home'
 
 end

@@ -14,4 +14,24 @@ ActiveAdmin.register Student do
 # end
 
 
+  action_item :add, only: :show do
+    link_to 'Download Logfile', download_file_admin_students_path(:id => student.id), method: :post
+  end
+
+  collection_action :download_file, method: :post do
+
+  end
+
+  controller do
+
+      def download_file()
+        @student = Student.find(params[:id]);
+        send_file(@student.file.path,
+          :filename => @student.file,
+          :type => @student.file.content_type,
+          :disposition => 'attachment',
+          :url_based_filename => true)
+      end
+  end
+
 end

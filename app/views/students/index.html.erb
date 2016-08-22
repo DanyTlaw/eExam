@@ -8,8 +8,9 @@
     <% @students.each do |student| %>
       <tr>
         <td><%= student.email %></td>
+        <td><%= link_to 'file', {:controller => "students", :action => "download_file", :id => student.id}%></td>  
         <td><%= link_to 'Anzeigen', course_of_study_course_student_path(@course_of_study.id,@course.id, student.id), class: "btn btn-info" %>
-        <td><%= link_to 'file', student.file%></td>  
+
         <%= link_to 'Editieren', edit_course_of_study_course_student_path(@course_of_study.id,@course.id, student.id), class: "btn btn-warning" %>
         <%= link_to 'Löschen', [@course_of_study, @course, student], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
