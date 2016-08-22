@@ -31,7 +31,10 @@ gem 'active_model_serializers', '~> 0.10.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
-
+# gem for handling uploads
+gem 'carrierwave'
+# gem for encrypt and decrypt
+gem 'gibberish'
 
 gem 'rspec-rails', '>= 3.5.0.beta1'
 gem 'ransack',    github: 'activerecord-hackery/ransack'
@@ -43,11 +46,11 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 # To fix a Draper deprecation error
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
 
-
+# gem for administration panel
 gem 'activeadmin', github: 'activeadmin'
 
 gem 'actionpack', '~> 5.0.0'
-
+# gem for easy use of angular in views
 gem 'angularjs-rails'
 
 group :development, :test do

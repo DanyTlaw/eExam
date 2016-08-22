@@ -22,9 +22,20 @@
       sEmail = studentInfo[0]["email"]
       student = Student.where(email: sEmail).first
       student.update_attribute(:online, true)
-      online(studentInfo[0]["name"])
       render text: "The student is Online"
+    end
 
+    # Function to receive the file
+    def logfile
+      @student = Student.find(4);
+
+      @student.file = params[:logfile]
+      if @student.save!
+        puts "SAAAAAAAAAAAAAAAAVE"
+      else
+        puts "NOOOOOOOOOOOO"
+      end
+      puts request
     end
 
     def apigettest
