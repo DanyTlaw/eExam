@@ -71,6 +71,7 @@ class StudentsController < ApplicationController
     @student = @course.students.find(params[:id])
   end
 
+  #This function saves the file
   def add_file
     @student = Student.find(4);
     @student.file = params[:logfile]
@@ -79,6 +80,15 @@ class StudentsController < ApplicationController
     else
       puts "NOOOOOOOOOOOO"
     end
+  end
+
+  def download_file
+    @student = Student.find(params[:id]);
+    send_file(@student.file.path,
+      :filename => @student.file,
+      :type => @student.file.content_type,
+      :disposition => 'attachment',
+      :url_based_filename => true)
   end
 
   # POST /students
