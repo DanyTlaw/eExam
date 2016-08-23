@@ -34,14 +34,24 @@ ActiveAdmin.register Student do
         cipher = Gibberish::AES::CBC.new('meinpassword')
         # the received file only has one encrypted sentence per line (This is important!)
         # Open the logfile of the specific student
+        text = ""
         File.open(p_path + u_path +"/" + student.id.to_s + "/" + file_name) do |f|
           # For each line in the encrypted file decrypt it and add it in the new file
           f.each_line do |line|
-            # Open then new file and add the line
-            File.open(dec_file, "a+") do |file|
-              file << cipher.decrypt(line) + "\n"
+            text = text + line
+          end
+        end
 
-            end
+        # Split the text at | to get the encrypted aes cbc line
+        # This step is imporant then not every char for example @ gets in a good base 64 shape and becomes 96
+        lines = text.split("|")
+
+        # Open then new file and add the line
+        File.open(dec_file, "a+") do |file|
+          lines.each do |line|
+            file << cipher.decrypt(line)
+            file << "\n"
+            puts line
           end
         end
         # return the new file
@@ -60,8 +70,6 @@ ActiveAdmin.register Student do
         :type => @student.file.content_type,
         :disposition => 'attachment',
         :url_based_filename => true)
-      # we wanna delete the file from the server after we send the file for download (keeps server clean)
-      File.delete(decr_file)
     end
   end
 
