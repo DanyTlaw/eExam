@@ -1,7 +1,7 @@
 
 
 var myApp = angular.module('test',[]);
-
+// This Controller was with the old polling logic not needed but gonna keep it here if we want to reverse it to polling but i dont recommend it
 myApp.controller('PollController', ['$scope','$http', '$timeout', function($scope, $http, $timeout){
     $scope.name = "daniel";
     $scope.entries = [];
@@ -23,12 +23,13 @@ myApp.controller('PollController', ['$scope','$http', '$timeout', function($scop
 myApp.controller("StatusController", ['$scope','$http', function($scope, $http){
 
   $scope.entries = {};
-
+  // getting the variables from the html elements
   var courseID = $("#info").attr("course");
   var courseOfStudyID = $("#info").attr("courseOfStudy");
   console.log(courseID);
   console.log(courseOfStudyID);
   $scope.name = "";
+  // The sourcelink is needed for the SSE connection and the getters
   var sourceLink = "/stream?" + "course_id=" +courseID + "&" + "course_of_study_id=" +courseOfStudyID;
   console.log(sourceLink);
   var link = "/stream";
@@ -57,7 +58,7 @@ myApp.controller("StatusController", ['$scope','$http', function($scope, $http){
           alert(error);
         });
     };
-  
+
 
 }]);
 
