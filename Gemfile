@@ -34,10 +34,10 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'devise'
 # gem for handling uploads
 gem 'carrierwave'
-# gem for encrypt and decrypt 
+# gem for encrypt and decrypt
 gem 'gibberish'
 
-gem 'rspec-rails', '>= 3.5.0.beta1'
+gem 'rspec-rails'
 gem 'ransack',    github: 'activerecord-hackery/ransack'
 gem 'kaminari',   github: 'amatsuda/kaminari', branch: '0-17-stable'
 gem 'formtastic', github: 'justinfrench/formtastic'
