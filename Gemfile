@@ -34,7 +34,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'devise'
 # gem for handling uploads
 gem 'carrierwave'
-# gem for encrypt and decrypt
+# gem for encrypt and decrypt d
 gem 'gibberish'
 
 gem 'rspec-rails', '>= 3.5.0.beta1'
