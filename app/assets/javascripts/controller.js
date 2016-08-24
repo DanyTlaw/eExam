@@ -22,6 +22,8 @@ myApp.controller('PollController', ['$scope','$http', '$timeout', function($scop
 
 myApp.controller("StatusController", ['$scope','$http', function($scope, $http){
 
+  var hosturl = "http://localhost:3000";
+
   $scope.entries = {};
   // getting the variables from the html elements
   var courseID = $("#info").attr("course");
@@ -47,7 +49,6 @@ myApp.controller("StatusController", ['$scope','$http', function($scope, $http){
   };
 
   $scope.init = function(){
-    var hosturl = "http://localhost:3000";
     var courseID = $("#info").attr("course");
     var courseOfStudyID = $("#info").attr("courseOfStudy");
     var sourceLink = "/getCourseStudents?" + "course_id=" +courseID + "&" + "course_of_study_id=" +courseOfStudyID;
@@ -59,9 +60,15 @@ myApp.controller("StatusController", ['$scope','$http', function($scope, $http){
         });
     };
 
+  $scope.setOffline = function(id){
+    // Sends a JSON file with the informations
+      $http.post(hosturl + "/setOffline", [{"student_id": id}])
+      .success(function(data){
+
+      })
+      .error(function(data){
+        
+      });
+  }
 
 }]);
-
-myApp.controller("ActionController", ['$scope'], function($scope){
-
-})

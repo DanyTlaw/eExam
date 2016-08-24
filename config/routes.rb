@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   post "/logfileupload", to: 'students#add_file', as: 'upload_file'
   post "/downloadFile", to: 'students#download_file'
 
+  post "/setOffline", to: 'students#set_offline'
+
   root 'static#home'
 
 end
