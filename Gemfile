@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
-# Specified ruby version for heroku
-ruby "2.3.1"
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
@@ -34,10 +33,10 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'devise'
 # gem for handling uploads
 gem 'carrierwave'
-# gem for encrypt and decryp
+# gem for encrypt and decrypt
 gem 'gibberish'
 
-gem 'rspec-rails'
+gem 'rspec-rails', '>= 3.5.0.beta1'
 gem 'ransack',    github: 'activerecord-hackery/ransack'
 gem 'kaminari',   github: 'amatsuda/kaminari', branch: '0-17-stable'
 gem 'formtastic', github: 'justinfrench/formtastic'
