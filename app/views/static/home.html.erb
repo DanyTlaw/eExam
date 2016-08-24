@@ -1,1 +1,22 @@
-<h2>Home page</h2>
+<% if user_signed_in? then%>
+  <h2>Welcome to the eExam webapplikation</h2>
+  <div class="panel panel-default">
+    <div class="panel-heading">About this application</div>
+    <div class="panel-body">
+      <p>This is the Application for the faculty. For more informations ask the adminstrator.</p>
+      <p>To get to the Dashboard for the exam situation follow this path></p>
+      <ol>
+        <li>Go to course of study</li>
+        <li>Select the course of study</li>
+        <li>Select the course</li>
+        <li>Show all students</li>
+        <li>Select the dashboard</li>
+        <li>Start the connection</li>
+      </ol>
+
+    </div>
+  </div>
+
+<% else %>
+  <p>Please sign in.</p>
+<% end%>
