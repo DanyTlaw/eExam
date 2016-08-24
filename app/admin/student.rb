@@ -1,5 +1,10 @@
 ActiveAdmin.register Student do
-   permit_params :email
+
+  permit_params  :email, :course_id,
+    course_attributes: [:id]
+
+
+
   # Include the Application helper to get acces to the decrypt funtion
   #include ApplicationHelper
 

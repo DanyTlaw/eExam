@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # Serve websockte cable requests in-process
   # mount ActionCable.server => '/cable'
 
+
   scope "/api" do
     match '/setReady', to: 'api#setReady', via: :post
     match '/isOnline', to: "api#is_online", via: :post
