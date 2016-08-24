@@ -48,7 +48,8 @@ ActiveAdmin.register Student do
 
         # Open then new file and add the line
         File.open(dec_file, "a+") do |file|
-          lines.each do |line|
+          # loop over all lines except the last bcs it will be emtpy "|" .... <- empty
+          lines[0...-1].each do |line|
             file << cipher.decrypt(line)
             file << "\n"
             puts line

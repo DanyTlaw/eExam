@@ -1,24 +1,70 @@
 <h1>Students</h1>
+
 <div id="info" course="<%=@course.id %>" courseOfStudy="<%=@course_of_study.id %>"></div>
 <div ng-controller="StatusController" ng-init="init()">
-  <button class="btn btn-primary"ng-click="sseFunction()">Los</button>
+
+
+
+
 
   <div class="panel panel-default">
-    <div class="panel-heading">All Student in this Course</div>
+    <div class="panel-heading">Informations</div>
+    <div class="panel-body">
+      <p>This is the Dashboard view for the exam<p>
+      <p>Course of Study: <%=@course_of_study.name %> Course: <%= @course.name%> </p>
+      <p><b>Ready:</b> If the student is ready for the test the field will be filled with a green sign</p>
+      <p><b>Online:</b> If the student is online during the test the field will be filled with a green sign</p>
+      <p><b>File:</b> If there is a file uploaded it will show the URL of the file</p>
+      <p><b>Filename:</b> The URL ending shoudl be Emailadresse + <%= @course.name%> + <%=@course_of_study.name %> .txt<p>
+    </div>
+  </div>
+  <div>
+    <button class="btn btn-success"ng-click="sseFunction()"style="margin-bottom: 10px;" >Start server connection</button>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">All Student in this Course
+    </div>
     <div class="panel-body">
       <table class="table">
         <tr>
           <th>Email</th>
-          <th>Angemeldet</th>
+          <th>Ready</th>
           <th>Online</th>
+          <th>File</th>
+          <th>Set Offline</th>
+
         </tr>
 
         <tr ng-repeat="entry in entries">
+
           <td>{{entry.email}}</td>
-          <td>{{entry.check}}</td>
-          <td>{{entry.online}}</td>
+
+          <td>
+          <div ng-if="entry.check == true">
+            <span class="glyphicon glyphicon-ok-sign" style="color: green;font-size: 2em;"></span>
+          </div>
+          <div ng-if="entry.check == false">
+            <span class="glyphicon glyphicon-remove-sign" style="color: red;font-size: 2em;"></span>
+          </div>
+          </td>
+
+          <td>
+          <div ng-if="entry.online == true">
+            <span class="glyphicon glyphicon-ok-sign" style="color: green;font-size: 2em;"></span>
+          </div>
+          <div ng-if="entry.online == false">
+            <span class="glyphicon glyphicon-remove-sign" style="color: red;font-size: 2em;"></span>
+          </div>
+          </td>
+          <td>{{entry.file.url}}</td>
+          <td>
+            <button class="btn btn-warning" ng-click="setOffline(entry.id)">Set Offline</button>
+          </td>
         </tr>
-      </table
+
+
+
+      </table>
 
     </div>
   </div>

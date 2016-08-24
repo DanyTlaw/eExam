@@ -2,7 +2,7 @@
 class StudentsController < ApplicationController
   include ActionController::Live
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:set_offline]
 
   # GET /students
   # GET /students.json
@@ -17,6 +17,13 @@ class StudentsController < ApplicationController
     @course = Course.find(params[:course_id])
     @students = @course.students
 
+  end
+
+  def set_offline
+    info = JSON.parse(request.body.read)
+    id = info[0]["student_id"]
+    student = Student.find(id)
+    student.update_attribute(:online, false)
   end
 
   def getCourseStudents

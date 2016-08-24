@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   # mount ActionCable.server => '/cable'
 
   scope "/api" do
-    match '/apitest', to: 'api#apitest', via: :post
-    get "/apiget", to: "api#apigettest"
+    match '/setReady', to: 'api#setReady', via: :post
     match '/isOnline', to: "api#is_online", via: :post
     get "/online", to: "api#online"
     match "logfile", to: "api#logfile", via: :post
@@ -29,6 +28,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   post "/logfileupload", to: 'students#add_file', as: 'upload_file'
   post "/downloadFile", to: 'students#download_file'
+
+  post "/setOffline", to: 'students#set_offline'
 
   root 'static#home'
 
