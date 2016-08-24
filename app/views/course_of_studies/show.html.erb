@@ -6,14 +6,15 @@
       <th>Name</th>
       <th>Semester</th>
       <tr>
-        <td><%=@course_of_study.name%></td> 
+        <td><%=@course_of_study.name%></td>
         <td><%=@course_of_study.semester%></td>
         <td><%= link_to 'Kurse', course_of_study_courses_path(@course_of_study.id), class: "btn btn-primary" %></td>
       </tr>
       </table>
     </div>
   </div>
-
+<!-- Links if you want to the user to be able to create etc.
 <%= link_to 'Neuer Kurs für diesen Studiengang', new_course_of_study_course_path(@course_of_study.id), class: "btn btn-success" %>
-<%= link_to 'Bearbeite Studiengang', edit_course_of_study_path(@course_of_study), class: "btn btn-warning" %> 
+<%= link_to 'Bearbeite Studiengang', edit_course_of_study_path(@course_of_study), class: "btn btn-warning" %>
 <%= link_to 'Zurück', course_of_studies_path, class: "btn btn-primary" %>
+-->

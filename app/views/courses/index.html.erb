@@ -6,17 +6,14 @@
     <table class="table">
       <th>Kursname</th>
       <% @courses.each do |course| %>
-        
+
         <tr>
           <td><%= course.name %></td>
-          <td><%= link_to 'Anzeigen', course_of_study_course_path(@course_of_study.id, course.id), class:"btn btn-info" %>
-          <%= link_to 'Editieren', edit_course_of_study_course_path(@course_of_study, course.id), class: "btn btn-warning" %>
-          <%= link_to 'Löschen', [@course_of_study, course], method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+          <td><%= link_to 'Anzeigen', course_of_study_course_path(@course_of_study.id, course.id), class:"btn btn-info" %></td>
+
         </tr>
       <% end %>
     </table>
   </div>
 </div>
 <br>
-
-<%= link_to 'Neuer Kurs', new_course_of_study_course_path, class: "btn btn-success" %>

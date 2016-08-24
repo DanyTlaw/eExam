@@ -4,7 +4,7 @@
         <div id="login-overlay" class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Schliessen</span></button>
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
               <h4 class="modal-title" id="myModalLabel">Log in</h4>
             </div>
             <div class="modal-body">
@@ -22,10 +22,10 @@
                         <%= f.password_field :password , :placeholder => 'Password', :class=>'form-control'%>
                         <span class="help-block"></span>
                       </div>
-                      <div id="loginErrorMsg" class="alert alert-error hide">Falsches Passwort oder Email</div>
+                      <div id="loginErrorMsg" class="alert alert-error hide">Wrong password or email</div>
                       <div class="checkbox">
                         <label>
-                          <div><%= f.check_box :remember_me %> <%= f.label "Login speichern" %></div></br>
+                          <div><%= f.check_box :remember_me %> <%= f.label "Save login" %></div></br>
                           <%= render "devise/shared/links" %>
                         </label>
 
@@ -35,12 +35,12 @@
                   </div>
                 </div>
                 <div class="col-xs-6">
-                  <p class="lead">Registrieren Sie sich<span class="text-success"> an der FHNW</span></p>
+                  <p class="lead">Register you at<span class="text-success"> the FHNW.</span></p>
                   <ul class="list-unstyled" style="line-height: 2">
-                    <li><span class="fa fa-check text-success"></span> Administrator an einer FHNW</li>
-                    <li><span class="fa fa-check text-success"></span> kann Sie registrieren</li>
-                    <li><span class="fa fa-check text-success"></span> lassen. Bitte fragen Sie im</li>
-                    <li><span class="fa fa-check text-success"></span> Sekretariat nach</li>
+                    <li><span class="fa fa-check text-success"></span> Administrator at the FHNW</li>
+                    <li><span class="fa fa-check text-success"></span> can register you.</li>
+                    <li><span class="fa fa-check text-success"></span> Please ask admin for</li>
+                    <li><span class="fa fa-check text-success"></span> further questions.</li>
                   </ul>
                 </div>
               </div>
