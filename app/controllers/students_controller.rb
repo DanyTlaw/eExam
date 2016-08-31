@@ -1,5 +1,6 @@
 
 class StudentsController < ApplicationController
+  # includes the Live class for SSE connection
   include ActionController::Live
   before_action :set_student, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:set_offline]
@@ -19,6 +20,7 @@ class StudentsController < ApplicationController
 
   end
 
+  # Function for setting the datafield online to false
   def set_offline
     info = JSON.parse(request.body.read)
     id = info[0]["student_id"]
@@ -26,6 +28,7 @@ class StudentsController < ApplicationController
     student.update_attribute(:online, false)
   end
 
+  # Function for getting all students from a specific course
   def getCourseStudents
     @course_of_study = CourseOfStudy.find(params[:course_of_study_id])
     @course = Course.find(params[:course_id])
@@ -33,19 +36,17 @@ class StudentsController < ApplicationController
     render json: @students
   end
 
-  def watch
 
-  end
-
+  # Function for starting the SSE stream
   def index_stream
     @course_of_study = CourseOfStudy.find(params[:course_of_study_id])
     @course = Course.find(params[:course_id])
     @students = @course.students
-    puts "LAAAAAAAAAAAAAAAAAAAAUFT"
+    # Set header for stream
     response.headers['Content-Type'] = 'text/event-stream'
-
+    # create Stream
     sse = SSE.new(response.stream)
-
+      #start stream
       begin
         sse.write(@students.as_json, event: 'results')
       rescue IOError
@@ -82,13 +83,16 @@ class StudentsController < ApplicationController
   def add_file
     @student = Student.find(4);
     @student.file = params[:logfile]
+    # saves the file path
     if @student.save!
-      puts "SAAAAAAAAAAAAAAAAVE"
+      #debug message
+      puts  "save"
     else
-      puts "NOOOOOOOOOOOO"
+      puts "not saved"
     end
   end
 
+  # Function for make download_file possible on the normal frontend not in use yet but could be used later
   def download_file
     @student = Student.find(params[:id]);
     send_file(@student.file.path,

@@ -32,6 +32,7 @@ Rails.application.routes.draw do
 
   post "/setOffline", to: 'students#set_offline'
 
+  get "/instructions", to: 'static#instructions'
   root 'static#home'
 
 end

@@ -1,6 +1,8 @@
+# This controller has all important CRUD functions and more. Alot of the CRUD function are so coded
+# that the Function can also be used in the not Admin area, where it isn't used right now.
 class CourseOfStudiesController < ApplicationController
   before_action :set_course_of_study, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user! 
+  before_filter :authenticate_user!
 
   # GET /course_of_studies
   # GET /course_of_studies.json
