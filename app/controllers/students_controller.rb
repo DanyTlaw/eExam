@@ -1,5 +1,8 @@
-
+# This controller has all important CRUD functions and more. Alot of the CRUD function are so coded
+# that the Function can also be used in the not Admin area, where it isn't used right now.
 class StudentsController < ApplicationController
+
+
   # includes the Live class for SSE connection
   include ActionController::Live
   before_action :set_student, only: [:show, :edit, :update, :destroy]
@@ -25,6 +28,7 @@ class StudentsController < ApplicationController
     info = JSON.parse(request.body.read)
     id = info[0]["student_id"]
     student = Student.find(id)
+    puts "offline setzen"
     student.update_attribute(:online, false)
   end
 

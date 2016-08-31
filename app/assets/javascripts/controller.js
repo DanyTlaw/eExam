@@ -23,7 +23,7 @@ myApp.controller('PollController', ['$scope','$http', '$timeout', function($scop
 myApp.controller("StatusController", ['$scope','$http', function($scope, $http){
 
   // This Url represents the root path of the Application
-  var hosturl = "http://eexam.herokuapp.com/";
+  var hosturl = "http://eexam.herokuapp.com";
 
   $scope.entries = {};
   // getting the variables from the html elements
