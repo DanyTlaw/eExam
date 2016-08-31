@@ -35,4 +35,5 @@ Rails.application.routes.draw do
   get "/instructions", to: 'static#instructions'
   root 'static#home'
 
+
 end
